@@ -1,0 +1,111 @@
+/* Styles for the SortablePuzzlePiece component */
+.puzzle-piece {
+  background-color: #ffd54f;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  user-select: none;
+  width: 100%;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent content from overflowing */
+}
+
+.puzzle-piece.bank-piece {
+  width: 100%;
+  max-width: 1000px; /* Increased to 1000px */
+  height: auto;
+  min-height: 80px;
+  margin: 0 auto; /* Center the piece */
+}
+
+.puzzle-piece.solution-piece {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.puzzle-piece.dragging {
+  opacity: 0.5;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.puzzle-piece.is-over {
+  border: 2px dashed #3498db;
+}
+
+.puzzle-piece.connected-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: -4px;
+}
+
+.puzzle-piece.connected-bottom {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: -4px;
+}
+
+.step-number {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.step-content {
+  flex: 1;
+  overflow-wrap: break-word; /* Allow long words to break */
+  word-wrap: break-word;
+  word-break: break-word; /* Break words to prevent overflow */
+  hyphens: auto;
+  font-size: 14px; /* Slightly smaller font size */
+  line-height: 1.4; /* Improved line height for readability */
+  max-height: 200px; /* Maximum height */
+  overflow-y: auto; /* Add scrolling if content is too tall */
+}
+
+.step-explanation {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #555;
+  font-style: italic;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 6px;
+}
+
+/* Make sure KaTeX elements don't overflow */
+.step-content .katex-display {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.step-content .katex {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: normal; /* Allow line breaks */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .puzzle-piece.bank-piece {
+    max-width: 100%;
+    min-height: 100px;
+  }
+  
+  .step-content {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .puzzle-piece {
+    padding: 10px;
+  }
+  
+  .step-number {
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+} 

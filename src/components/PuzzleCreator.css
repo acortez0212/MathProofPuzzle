@@ -1,0 +1,156 @@
+.puzzle-creator {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.problem-section, .steps-section {
+  background: #f5f7fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.problem-section h2, .steps-section h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.preview {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.math-preview {
+  overflow-x: auto;
+  padding: 8px;
+}
+
+.step-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.step-input button {
+  padding: 0 1rem;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.step-input button:hover {
+  background: #2980b9;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 200px;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.step-number {
+  font-weight: bold;
+  margin-right: 1rem;
+  color: #7f8c8d;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  font-size: 14px;
+  line-height: 1.4;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.step-content .katex-display {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.step-content .katex {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: normal;
+}
+
+.remove-step {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.no-steps {
+  color: #7f8c8d;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+}
+
+.generate-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center;
+  transition: background 0.3s;
+}
+
+.generate-button:hover {
+  background: #2ecc71;
+}
+
+.generate-button:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+}
+
+.api-key-notice {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 4px;
+  color: #856404;
+} 
