@@ -11,6 +11,7 @@ function LLMPuzzleCreator({ setPuzzlePieces, setProblem, onGeneratePuzzle }) {
   const [apiKeyEntered, setApiKeyEntered] = useState(true); // Default to true if using env variable
   const [generatedSteps, setGeneratedSteps] = useState([]); // Local state to store generated steps
   const [generatedProblem, setGeneratedProblem] = useState(''); // Local state to store generated problem
+  const [numSteps, setNumSteps] = useState(10); // Default to 10 steps
   
   // Check if API key is available from environment variable
   useEffect(() => {
@@ -122,6 +123,8 @@ Generate clear, concise steps that logically build on each other. Number each st
             
 Please provide your response as a JSON object with a problem_statement field containing the LaTeX formatted problem and a proof_steps array where each step has an order number and content in LaTeX format.
 
+IMPORTANT: Your proof must contain EXACTLY ${numSteps} steps - no more, no less.
+
 REMEMBER THE LATEX FORMATTING RULES:
 - Use \\text{} ONLY for plain English text portions
 - Write mathematical symbols and expressions directly (no extra backslashes)
@@ -131,7 +134,7 @@ REMEMBER THE LATEX FORMATTING RULES:
 Example of properly formatted step:
 "\\\\text{Since } V = R(T) + N(T) \\\\text{, we know that any vector } v \\in V \\\\text{ can be written as } v = r + n \\\\text{ where } r \\in R(T) \\\\text{ and } n \\in N(T)."
 
-Include at least 3-6 steps in your proof and ensure they build logically on each other.
+Ensure all ${numSteps} steps build logically on each other.
 Each step should be meaningful and contribute to the overall proof.`
           }
         ],
@@ -236,12 +239,27 @@ Each step should be meaningful and contribute to the overall proof.`
           )}
         </div>
         
+        <div className="step-selector">
+          <h3>Number of Proof Steps:</h3>
+          <div className="step-buttons">
+            {[5, 10, 15, 20].map(steps => (
+              <button
+                key={steps}
+                className={`step-button ${numSteps === steps ? 'active' : ''}`}
+                onClick={() => setNumSteps(steps)}
+              >
+                {steps} Steps
+              </button>
+            ))}
+          </div>
+        </div>
+        
         <button 
           className="generate-button"
           onClick={handleGenerateProof}
           disabled={isLoading || !problemStatement.trim() || !apiKeyEntered}
         >
-          {isLoading ? 'Generating...' : 'Generate Proof & Puzzle'}
+          {isLoading ? 'Generating...' : `Generate ${numSteps}-Step Proof & Puzzle`}
         </button>
         
         {error && (

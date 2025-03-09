@@ -39,6 +39,44 @@ textarea {
   padding: 8px;
 }
 
+.step-selector {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.step-selector h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+}
+
+.step-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.step-button {
+  padding: 0.5rem 1rem;
+  background: #f1f1f1;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.step-button:hover {
+  background: #e0e0e0;
+}
+
+.step-button.active {
+  background: #3498db;
+  color: white;
+  border-color: #2980b9;
+}
+
 .step-input {
   display: flex;
   gap: 10px;

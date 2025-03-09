@@ -116,7 +116,7 @@ function PuzzleBoard({ problem, puzzlePieces, setPuzzlePieces, onReset }) {
           )}
         </Droppable>
         
-        <Droppable droppableId="free-pieces" direction="horizontal">
+        <Droppable droppableId="free-pieces" direction="vertical">
           {(provided) => (
             <div 
               className="free-pieces-area" 
